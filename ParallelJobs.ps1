@@ -131,8 +131,8 @@ function runJobs()
         #Call function to assess job count, and throttle if applicable.   
         ThrottleJobs -NumOfItems $NumOfItems
 
-            #Create a new background job. Because PowerShell does not allow controlling the ID attribute of a job, instead we name the job
-            #with a controllable integer. In this case, since we are iterating through an array of elements, we name each job by it's $index.
+            #Create a new background job. Because PowerShell does not allow controlling the ID attribute of a job, instead we name the jobs
+            #with a controllable integer. Since we are stepping through an array of elements, we name each job by it's $index.
             $arrayofJobs += 
             Start-Job -Name $index -ScriptBlock{
                 $modDef = [ScriptBlock]::Create($Using:moduleDefinition)    
